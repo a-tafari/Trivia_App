@@ -1,0 +1,49 @@
+<resources xmlns:xliff="http://schemas.android.com/tools">
+    <string name="app_name">HipHop_Trivia</string>
+    <string name="instructions">How well do you know your hip-hop? Choose from the Multiple Choice below. Each correct answer is worth 10pts, like wise every incorrect answer is -1pts. </string>
+    <string name="question1">1. Who once said that they could \"sneak an uzi on the Island, in their army jacket lining\"? </string>
+    <string name="q1Answer1">Nas </string>
+    <string name="q1Answer2">Ghostface </string>
+    <string name="q1Answer3">Lil\'Yachty </string>
+    <string name="question2">2. This rapper once pondered \"why is sky the blue? Why is water wet? Why did Judas rat to Romans While Jesus Slept\"? </string>
+    <string name="question3">3. Where did Hip_Hop originate from? </string>
+    <string name="question4">4. Top ten best selling hip-hop albums of all time? </string>
+    <string name="question5">5. List the original members of The L.O.X.: </string>
+    <string name="question6">6. Which rap superstars collaborated on the 2011 album Watch the Throne? </string>
+    <string name="question7">7. New York rapper Vado is the protégé of which Harlem legend? </string>
+    <string name="question8">8. What was 50 Cent \' s 2003 debut album titled? </string>
+    <string name="question9">9. One of the fastest rappers in the game who hails from Chi-Town? </string>
+    <string name="question10">10. James Todd Smith is the government name of which rapper? </string>
+    <string name="q5Answer1">Sheek Louch, DMX, Drag-On </string>
+    <string name="q5Answer2">Jadakiss, DMX, Styles P </string>
+    <string name="q5Answer3">Sheek Louch, Styles P, Jadakiss </string>
+    <string name="q6Answer1">Jay-Z &amp; Rick Ross </string>
+    <string name="q6Answer2">Jay-Z &amp; Kanye West </string>
+    <string name="q6Answer3">Diddy &amp; Rick Ross </string>
+    <string name="q7Answer1">Cam \' ron </string>
+    <string name="q7Answer2">Jim Jones </string>
+    <string name="q7Answer3">Big L </string>
+    <string name="q8Answer1">The Massacre </string>
+    <string name="q8Answer2">How To Rob </string>
+    <string name="q8Answer3">Get Rich Or Die Tryin </string>
+    <string name="q9Answer1">Twista </string>
+    <string name="q9Answer2">Bizzy Bone </string>
+    <string name="q9Answer3">T-Pain </string>
+    <string name="q10Answer1">Juelz Santana </string>
+    <string name="q10Answer2">Jay Rock </string>
+    <string name="q10Answer3">LL Cool J </string>
+    <string name="q4Answer1">Biggie: Life After Death </string>
+    <string name="q4Answer2">Eminem: Marshall Mathers LP </string>
+    <string name="q4Answer3">Outkast: Speakerboxxx/The Love Below</string>
+    <string name="q3Answer1">Bronx, NY </string>
+    <string name="q3Answer2">Atlanta, GA</string>
+    <string name="q3Answer3">Brooklyn, NY </string>
+    <string name="q2Answer1">Rza </string>
+    <string name="q2Answer2">YoungThug</string>
+    <string name="submit">Submit Test</string>
+    <string name="clearForm">Clear Form</string>
+    <string name="order_summary_name">Name: <xliff:g id="name" example="Amy">%s</xliff:g></string>
+
+
+
+</resources>
