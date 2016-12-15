@@ -1,23 +1,18 @@
 package com.example.android.hiphop_trivia;
 
-import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
-import android.view.Gravity;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.TextView;
 import android.widget.Toast;
-
-import static com.example.android.hiphop_trivia.R.id.q2CheckBox1;
 
 public class MainActivity extends AppCompatActivity {
     private RadioButton checkBoxA, checkBoxB, checkBoxC;
-    private RadioButton checkBoxQ3_1, checkBoxQ3_2, checkBoxQ3_3;
+
     private RadioButton checkBoxQ4_1, checkBoxQ4_2, checkBoxQ4_3;
     private RadioButton checkBoxQ5_1, checkBoxQ5_2, checkBoxQ5_3;
     private RadioButton checkBoxQ6_1, checkBoxQ6_2, checkBoxQ6_3;
@@ -25,10 +20,8 @@ public class MainActivity extends AppCompatActivity {
     private RadioButton checkBoxQ8_1, checkBoxQ8_2, checkBoxQ8_3;
     private RadioButton checkBoxQ9_1, checkBoxQ9_2, checkBoxQ9_3;
     private RadioButton checkBoxQ10_1, checkBoxQ10_2, checkBoxQ10_3;
-    private CheckBox checkBoxA1, checkBoxB1, checkBoxC1;
+
     private int score = 0;
-
-
 
 
     @Override
@@ -38,14 +31,6 @@ public class MainActivity extends AppCompatActivity {
         checkBoxA = (RadioButton) findViewById(R.id.q1CheckBox1);
         checkBoxB = (RadioButton) findViewById(R.id.q1CheckBox2);
         checkBoxC = (RadioButton) findViewById(R.id.q1CheckBox3);
-
-        checkBoxA1 = (CheckBox) findViewById(q2CheckBox1);
-        checkBoxB1 = (CheckBox) findViewById(R.id.q2CheckBox2);
-        checkBoxC1 = (CheckBox) findViewById(R.id.q2CheckBox3);
-
-        checkBoxQ3_1 = (RadioButton) findViewById(R.id.q3CheckBox1);
-        checkBoxQ3_2 = (RadioButton) findViewById(R.id.q3CheckBox2);
-        checkBoxQ3_3 = (RadioButton) findViewById(R.id.q3CheckBox3);
 
         checkBoxQ4_1 = (RadioButton) findViewById(R.id.q4CheckBox1);
         checkBoxQ4_2 = (RadioButton) findViewById(R.id.q4CheckBox2);
@@ -76,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
         checkBoxQ10_3 = (RadioButton) findViewById(R.id.q10CheckBox3);
     }
 
+    //Activates and deactivates the instruction textview... makes it visible or invisible.
     public void showInstructions(View view) {
         View showText = findViewById(R.id.game_instructions);
         showText.setVisibility((showText.getVisibility() == View.VISIBLE) ? View.GONE : View.VISIBLE);
@@ -90,24 +76,33 @@ public class MainActivity extends AppCompatActivity {
             score -= 1;
         }
     }
+
     public void isQTwoCorrect(View View) {
         CheckBox isCorrect = (CheckBox) findViewById(R.id.q2CheckBox2);
+        CheckBox isCorrect2 = (CheckBox) findViewById(R.id.q2CheckBox3);
+        CheckBox isCorrect3 = (CheckBox) findViewById(R.id.q2CheckBox1);
         Boolean isChecked = isCorrect.isChecked();
-        if (isChecked) {
+        Boolean isChecked2 = isCorrect2.isChecked();
+        Boolean isChecked3 = isCorrect3.isChecked();
+        if (isChecked & isChecked2 & !isChecked3) {
             score += 10;
-        } else {
+        } else if (isChecked3) {
             score -= 1;
         }
     }
+
     public void isQThreeCorrect(View View) {
-        RadioGroup isCorrect = (RadioGroup) findViewById(R.id.radioGroup3);
-        int radioButtonID = isCorrect.getCheckedRadioButtonId();
-        if (radioButtonID == R.id.q3CheckBox1) {
+        EditText isCorrect = (EditText) findViewById(R.id.q3Answer);
+        String answer = isCorrect.getText().toString().toLowerCase();
+        String rightAnswer= "bronx";
+        Boolean matches = answer.contains(rightAnswer);
+        if (matches) {
             score += 10;
         } else {
             score -= 1;
         }
     }
+
     public void isQ4Correct(View View) {
         RadioGroup isCorrect = (RadioGroup) findViewById(R.id.radioGroup4);
         int radioButtonID = isCorrect.getCheckedRadioButtonId();
@@ -117,6 +112,7 @@ public class MainActivity extends AppCompatActivity {
             score -= 1;
         }
     }
+
     public void isQ5Correct(View View) {
         RadioGroup isCorrect = (RadioGroup) findViewById(R.id.radioGroup5);
         int radioButtonID = isCorrect.getCheckedRadioButtonId();
@@ -126,6 +122,7 @@ public class MainActivity extends AppCompatActivity {
             score -= 1;
         }
     }
+
     public void isQ6Correct(View View) {
         RadioGroup isCorrect = (RadioGroup) findViewById(R.id.radioGroup6);
         int radioButtonID = isCorrect.getCheckedRadioButtonId();
@@ -135,6 +132,7 @@ public class MainActivity extends AppCompatActivity {
             score -= 1;
         }
     }
+
     public void isQ7Correct(View View) {
         RadioGroup isCorrect = (RadioGroup) findViewById(R.id.radioGroup7);
         int radioButtonID = isCorrect.getCheckedRadioButtonId();
@@ -144,6 +142,7 @@ public class MainActivity extends AppCompatActivity {
             score -= 1;
         }
     }
+
     public void isQ8Correct(View View) {
         RadioGroup isCorrect = (RadioGroup) findViewById(R.id.radioGroup8);
         int radioButtonID = isCorrect.getCheckedRadioButtonId();
@@ -153,6 +152,7 @@ public class MainActivity extends AppCompatActivity {
             score -= 1;
         }
     }
+
     public void isQ9Correct(View View) {
         RadioGroup isCorrect = (RadioGroup) findViewById(R.id.radioGroup9);
         int radioButtonID = isCorrect.getCheckedRadioButtonId();
@@ -161,7 +161,9 @@ public class MainActivity extends AppCompatActivity {
         } else {
             score -= 1;
         }
-    } public void isQ10Correct(View View) {
+    }
+
+    public void isQ10Correct(View View) {
         RadioGroup isCorrect = (RadioGroup) findViewById(R.id.radioGroup10);
         int radioButtonID = isCorrect.getCheckedRadioButtonId();
         if (radioButtonID == R.id.q10CheckBox3) {
@@ -172,8 +174,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
-
+    //calls all the methods 1-10 and gets score.
     public void submitTest(View view) {
         isQOneCorrect(view);
         isQTwoCorrect(view);
@@ -186,31 +187,29 @@ public class MainActivity extends AppCompatActivity {
         isQ9Correct(view);
         isQ10Correct(view);
         EditText inputName = (EditText) findViewById(R.id.edit_message);
-        View results = findViewById(R.id.yourResults);
         Editable name = inputName.getText();
-        //View showText= findViewById(R.id.results);
-        TextView showResult= (TextView) findViewById(R.id.results);
-//        results.setVisibility(View.VISIBLE);
-//        showResult.setVisibility(View.VISIBLE);
-        String yourResult= resultSummary(name);
-        Toast.makeText(this, yourResult, Toast.LENGTH_SHORT ).show();
-        score=0;
+        String yourResult = resultSummary(name);
+        Toast.makeText(this, yourResult, Toast.LENGTH_SHORT).show();
+        score = 0;
 
 
     }
-    public String resultSummary(Editable name){
-        String results =  name + " you scored " + score + " Pts!";
+
+    //Takes name and attaches it to a result string.
+    public String resultSummary(Editable name) {
+        String results = name + " you scored " + score + " Pts!";
 
 
         return results;
 
     }
 
+    //clears all checked boxes or ons when clear form is clicked.
     public void clearForm(View view) {
         EditText inputName = (EditText) findViewById(R.id.edit_message);
+        EditText inputAnswer = (EditText) findViewById(R.id.q3Answer);
         RadioGroup isCorrect = (RadioGroup) findViewById(R.id.radioGroup1);
         RadioGroup isCorrect2 = (RadioGroup) findViewById(R.id.radioGroup2);
-        RadioGroup isCorrect3 = (RadioGroup) findViewById(R.id.radioGroup3);
         RadioGroup isCorrect4 = (RadioGroup) findViewById(R.id.radioGroup4);
         RadioGroup isCorrect5 = (RadioGroup) findViewById(R.id.radioGroup5);
         RadioGroup isCorrect6 = (RadioGroup) findViewById(R.id.radioGroup6);
@@ -218,18 +217,19 @@ public class MainActivity extends AppCompatActivity {
         RadioGroup isCorrect8 = (RadioGroup) findViewById(R.id.radioGroup8);
         RadioGroup isCorrect9 = (RadioGroup) findViewById(R.id.radioGroup9);
         RadioGroup isCorrect10 = (RadioGroup) findViewById(R.id.radioGroup10);
-        CheckBox isChecked1= (CheckBox) findViewById(R.id.q2CheckBox1);
-        CheckBox isChecked2= (CheckBox) findViewById(R.id.q2CheckBox2);
-        CheckBox isChecked3= (CheckBox) findViewById(R.id.q2CheckBox3);
+        CheckBox isChecked1 = (CheckBox) findViewById(R.id.q2CheckBox1);
+        CheckBox isChecked2 = (CheckBox) findViewById(R.id.q2CheckBox2);
+        CheckBox isChecked3 = (CheckBox) findViewById(R.id.q2CheckBox3);
         inputName.getText().clear();
+        inputAnswer.getText().clear();
         isCorrect.clearCheck();
         isCorrect2.clearCheck();
-        if(isChecked1.isChecked()||isChecked2.isChecked()||isChecked3.isChecked()){
+        if (isChecked1.isChecked() || isChecked2.isChecked() || isChecked3.isChecked()) {
             isChecked1.setChecked(false);
             isChecked2.setChecked(false);
             isChecked3.setChecked(false);
         }
-        isCorrect3.clearCheck();
+
         isCorrect4.clearCheck();
         isCorrect5.clearCheck();
         isCorrect6.clearCheck();
@@ -240,6 +240,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    //This method is what allows for only one checkbox or button to be clicked at a time.
     public void onCheckboxClicked(View view) {
 
         switch (view.getId()) {
@@ -265,46 +266,7 @@ public class MainActivity extends AppCompatActivity {
 
                 break;
 
-            case q2CheckBox1:
 
-                checkBoxB1.setChecked(false);
-                checkBoxC1.setChecked(false);
-
-                break;
-
-            case R.id.q2CheckBox2:
-
-                checkBoxC1.setChecked(false);
-                checkBoxA1.setChecked(false);
-
-                break;
-
-            case R.id.q2CheckBox3:
-
-                checkBoxA1.setChecked(false);
-                checkBoxB1.setChecked(false);
-
-                break;
-            case R.id.q3CheckBox1:
-
-                checkBoxQ3_3.setChecked(false);
-                checkBoxQ3_2.setChecked(false);
-
-                break;
-
-            case R.id.q3CheckBox2:
-
-                checkBoxQ3_1.setChecked(false);
-                checkBoxQ3_3.setChecked(false);
-
-                break;
-
-            case R.id.q3CheckBox3:
-
-                checkBoxQ3_1.setChecked(false);
-                checkBoxQ3_2.setChecked(false);
-
-                break;
             case R.id.q4CheckBox1:
 
                 checkBoxQ4_3.setChecked(false);
@@ -444,7 +406,8 @@ public class MainActivity extends AppCompatActivity {
                 checkBoxQ10_1.setChecked(false);
                 checkBoxQ10_2.setChecked(false);
 
-                break;        }
+                break;
+        }
     }
 
 }

@@ -39,11 +39,12 @@
     <string name="q3Answer2">Atlanta, GA</string>
     <string name="q3Answer3">Brooklyn, NY </string>
     <string name="q2Answer1">Rza </string>
-    <string name="q2Answer2">YoungThug</string>
+    <string name="q2Answer2">Iron Man</string>
     <string name="submit">Submit Test</string>
     <string name="clearForm">Clear Form</string>
     <string name="order_summary_name">Name: <xliff:g id="name" example="Amy">%s</xliff:g></string>
-
+    <string name="enter_name">Enter name</string>
+    <string name="enter_answer">Answer</string>
 
 
 </resources>
